@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="crossroad:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/crossroad_jar</output-path>
+    <root id="archive" name="crossroad.jar">
+      <element id="module-output" name="crossroad" />
+    </root>
+  </artifact>
+</component>

@@ -189,29 +189,29 @@ public class Main {
             try {
                 while (!currentThread().isInterrupted()) {
                         if (!FirstTLThread.getState().equals(Thread.State.TIMED_WAITING) && FirstTl.getQueue() > SecondTl.getQueue()
-                                && FirstTl.getCondition() == 'r' && SecondTl.getCondition() == 'r' && FourthTl.getCondition() == 'r') {
+                                && FirstTl.getCondition() == 'r' && SecondTl.getCondition() == 'r' && FourthTl.getCondition() == 'r'|| ThirdTl.getCondition()=='g') {
                             FirstTl.setCondition('g');
                         }
                     sleep(delay);
-                    if (ThirdTl.getCondition()=='g' && FirstTl.getQueue()>0){FirstTl.setCondition('g');}
+                   // if (ThirdTl.getCondition()=='g' && FirstTl.getQueue()>0) {FirstTl.setCondition('g');}
                         if (!SecondTLThread.getState().equals(Thread.State.TIMED_WAITING) && SecondTl.getQueue() > ThirdTl.getQueue()
-                                && SecondTl.getCondition() == 'r' && FirstTl.getCondition() == 'r' && ThirdTl.getCondition() == 'r') {
+                                && SecondTl.getCondition() == 'r' && FirstTl.getCondition() == 'r' && ThirdTl.getCondition() == 'r'|| FourthTl.getCondition()=='g') {
                             SecondTl.setCondition('g');
                         }
                     sleep(delay);
-                    if (FourthTl.getCondition()=='g' && SecondTl.getQueue()>0){SecondTl.setCondition('g');}
+                   // if (FourthTl.getCondition()=='g' && SecondTl.getQueue()>0) {SecondTl.setCondition('g');}
                         if (!ThirdTLThread.getState().equals(Thread.State.TIMED_WAITING) && ThirdTl.getQueue() > FourthTl.getQueue()
-                                && ThirdTl.getCondition() == 'r' && SecondTl.getCondition() == 'r' && FourthTl.getCondition() == 'r') {
+                                && ThirdTl.getCondition() == 'r' && SecondTl.getCondition() == 'r' && FourthTl.getCondition() == 'r'|| FirstTl.getCondition()=='g') {
                             ThirdTl.setCondition('g');
                         }
                     sleep(delay);
-                    if (FirstTl.getCondition()=='g' && ThirdTl.getQueue()>0){ThirdTl.setCondition('g');}
+                   // if (FirstTl.getCondition()=='g' && ThirdTl.getQueue()>0) {ThirdTl.setCondition('g');}
                         if (!FourthTLThread.getState().equals(Thread.State.TIMED_WAITING) && FourthTl.getQueue() > FirstTl.getQueue()
-                                && FourthTl.getCondition() == 'r' && FirstTl.getCondition() == 'r' && ThirdTl.getCondition() == 'r') {
+                                && FourthTl.getCondition() == 'r' && FirstTl.getCondition() == 'r' && ThirdTl.getCondition() == 'r'|| SecondTl.getCondition()=='g') {
                             FourthTl.setCondition('g');
                         }
                     sleep(delay);
-                    if (SecondTl.getCondition()=='g' && FourthTl.getQueue()>0){FourthTl.setCondition('g');}
+                    //if (SecondTl.getCondition()=='g' && FourthTl.getQueue()>0) {FourthTl.setCondition('g');}
 
                         if (currentTimeMillis()/1000 - timer > limAuto || Collections.max(listOfWalkersQueue) > 5) {
                             if(Collections.max(listOfWalkersQueue)!=0){
@@ -231,7 +231,7 @@ public class Main {
                                     synchronized (WalkerFourthTl){WalkerFourthTl.setQueue(WalkerFourthTl.getQueue() >  0? WalkerFourthTl.getQueue() - 1:WalkerFourthTl.getQueue());}
 
 
-                                sleep(2000);    //Время перехода одного пешехода
+                                sleep(1500);    //Время перехода одного пешехода
 
                                 }
                                 WalkerFirstTl.  setCondition('r');
